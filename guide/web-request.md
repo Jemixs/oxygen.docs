@@ -208,7 +208,7 @@ namespace MyServer.Plugins
     {
         public override void OnLoad()
         {
-            StartWebServer(8090, "BanSystem_Secure_Token_X7Z");
+            StartWebServer(8090, "BanSystem_Secure_Token");
         }
 
         // POST /admin/ban
