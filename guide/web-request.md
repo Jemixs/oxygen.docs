@@ -81,7 +81,7 @@ namespace MyServer.Plugins
 Sometimes you want an endpoint to be public (e.g., a server status page). You can disable authentication for specific routes using `requireAuth: false`.
 
 ```csharp
-// GET http://SERVER_IP:8081/status
+// GET http://SERVER_IP:8090/status
 // No Authorization header needed
 [WebRoute("/status", "GET", requireAuth: false)]
 public string GetStatus(string body)
@@ -113,8 +113,8 @@ namespace MyServer.Plugins
     {
         public override void OnLoad()
         {
-            // Port 8091, Token must be >12 chars
-            StartWebServer(8091, "Discord_Bot_Integration_Key_2025");
+            // Port 8090, Token must be >12 chars
+            StartWebServer(8090, "Discord_Bot_Integration_Key_2025");
         }
 
         // POST /say
@@ -127,7 +127,7 @@ namespace MyServer.Plugins
 
                 // Command: #Announce <Message>
                 // We use 'null' as the first argument to execute as Server Console
-                ProcessCommand(null, $"#Announce {data.Message}");
+                ProcessCommand(null, $"Announce {data.Message}");
 
                 Console.WriteLine($"[Web] Broadcast sent: {data.Message}");
                 return "{ \"status\": \"sent\" }";
@@ -159,7 +159,7 @@ namespace MyServer.Plugins
     {
         public override void OnLoad()
         {
-            StartWebServer(8092, "AdminPanel_Super_Secret_Key_99");
+            StartWebServer(8090, "AdminPanel_Super_Secret_Key_99");
         }
 
         // POST /api/world
@@ -171,13 +171,13 @@ namespace MyServer.Plugins
             // Change Time (e.g., "12:00")
             if (!string.IsNullOrEmpty(data.Time))
             {
-                ProcessCommand(null, $"#SetTime {data.Time}");
+                ProcessCommand(null, $"SetTime {data.Time}");
             }
             
             // Change Weather (0 = Sunny, 1 = Rain)
             if (data.WeatherId >= 0)
             {
-                ProcessCommand(null, $"#SetWeather {data.WeatherId}");
+                ProcessCommand(null, $"SetWeather {data.WeatherId}");
             }
 
             return "{ \"status\": \"updated\" }";
@@ -208,7 +208,7 @@ namespace MyServer.Plugins
     {
         public override void OnLoad()
         {
-            StartWebServer(8093, "BanSystem_Secure_Token_X7Z");
+            StartWebServer(8090, "BanSystem_Secure_Token_X7Z");
         }
 
         // POST /admin/ban
@@ -218,10 +218,10 @@ namespace MyServer.Plugins
             var request = JsonSerializer.Deserialize<BanRequest>(body);
 
             // Execute Ban: #Ban <SteamID> <Reason>
-            ProcessCommand(null, $"#Ban {request.SteamId} {request.Reason}");
+            ProcessCommand(null, $"Ban {request.SteamId} {request.Reason}");
             
             // Kick immediately to apply effect
-            ProcessCommand(null, $"#Kick {request.SteamId} {request.Reason}");
+            ProcessCommand(null, $"Kick {request.SteamId} {request.Reason}");
 
             Console.WriteLine($"[Web] Player {request.SteamId} banned remotely.");
             return "{ \"success\": true }";
@@ -244,7 +244,7 @@ Since security is mandatory, every request must include the **Authorization Head
 
 ### Example: CURL
 ```bash
-curl -X POST http://127.0.0.1:8091/say \
+curl -X POST http://SERVER_IP:8090/say \
      -H "Authorization: Discord_Bot_Integration_Key_2025" \
      -H "Content-Type: application/json" \
      -d '{"Message": "Hello from Terminal!"}'
@@ -254,7 +254,7 @@ curl -X POST http://127.0.0.1:8091/say \
 ```python
 import requests
 
-url = "http://127.0.0.1:8091/say"
+url = "http://SERVER_IP:8090/say"
 headers = {
     "Authorization": "Discord_Bot_Integration_Key_2025",
     "Content-Type": "application/json"
