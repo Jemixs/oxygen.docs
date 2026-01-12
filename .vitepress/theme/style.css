@@ -2,9 +2,9 @@
 
 :root {
   /* Основной цвет (Brand Color) */
-  --vp-c-brand-1: #e9782d;
-  --vp-c-brand-2: #a34100; /* Светлее (Hover) */
-  --vp-c-brand-3: #e9782d; /* Еще светлее (Active) */
+  --vp-c-brand-1: #e9592d;
+  --vp-c-brand-2: #f76033; /* Светлее (Hover) */
+  --vp-c-brand-3: #e9532d; /* Еще светлее (Active) */
   
   /* Полупрозрачный фон для акцентов */
   --vp-c-brand-soft: rgba(58, 92, 204, 0.14);
@@ -12,8 +12,8 @@
 
 /* Настройки для темной темы */
 .dark {
-  --vp-c-brand-1: #e9782d;
-  --vp-c-brand-2: #a34100; /* Светлее (Hover) */
-  --vp-c-brand-3: #e9782d; /* Еще светлее (Active) */
+  --vp-c-brand-1: #e9592d;
+  --vp-c-brand-2: #f76033; /* Светлее (Hover) */
+  --vp-c-brand-3: #e9532d; /* Еще светлее (Active) */
   --vp-c-brand-soft: rgba(91, 123, 247, 0.16);
 }
