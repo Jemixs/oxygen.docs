@@ -47,7 +47,7 @@ public class MyFirstPlugin : OxygenPlugin
 
         // 2. Send Request via Http.Request
         Http.Request(url)
-            .Post(payload, (response) => 
+            .Post(payload, (code, response) => 
             {
                 Console.WriteLine("Message sent!");
             });
