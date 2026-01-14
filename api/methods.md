@@ -22,7 +22,25 @@ ReplyPlayer(player, "Hello!");
 
 // Reply to specific ID
 ReplyPlayer(steamId, "Private message");
+
+// U can set message color, default - white
+ReplyPlayer(steamId, "Private message", Color.Red);
+
+// Print to chat for all, default color white
+PrintToChat("Server rules updated!", Color.Orange); 
 ```
+
+### Allowed colors
+
+| Color name | Preview |
+|-----------|---------|
+| White | Welcome on server! |
+| Blue | <span style="color:blue;">Welcome on server!</span> |
+| Green | <span style="color:green;">Welcome on server!</span> |
+| Yellow | <span style="color:gold;">Welcome on server!</span> |
+| Orange | <span style="color:orange;">Welcome on server!</span> |
+| Red | <span style="color:red;">Welcome on server!</span> |
+
 
 ## Admin command
 
