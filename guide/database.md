@@ -101,3 +101,6 @@ ProcessCommand(steamId, "SetFamePoints 10");
 | `FindOne<T>(col, val)` | Returns the first record matching the condition. |
 | `All<T>()` | Returns all records from the table. |
 | `FindWhere<T>(col, val)` | Returns a list of records matching the condition. |
+| `Take<T>(count)` | Returns the first N records. |
+| `Last<T>(orderBy)` | Returns the last record, sorted by the specified column. |
+| `TakeLast<T>(count, orderBy)` | Returns the last N records, sorted by the specified column. |
