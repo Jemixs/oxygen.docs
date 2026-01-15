@@ -35,6 +35,7 @@ export default defineConfig({
           { text: "HTTP server", link: "/guide/web-request" },
           { text: "HTTP client", link: "/guide/http-client" },
           { text: "Database Access", link: "/guide/database" },
+          { text: "Timers", link: "/guide/timers" },
         ],
       },
       {
