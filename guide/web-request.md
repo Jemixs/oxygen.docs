@@ -84,8 +84,12 @@ Sometimes you want an endpoint to be public (e.g., a server status page). You ca
 // GET http://SERVER_IP:8090/status
 // No Authorization header needed
 [WebRoute("/status", "GET", requireAuth: false)]
-public string GetStatus(string body)
+public string GetStatus(string body, Dictionary<string, string> query)
 {
+    if (query.TryGetValue("param", out string val))
+    {
+        Console.WriteLine($"query param {val}");
+    }
     // Return simple JSON
     return "{ \"online\": 50, \"max_players\": 64 }";
 }
