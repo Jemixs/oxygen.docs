@@ -15,13 +15,13 @@ public override void OnPlayerDisconnected(PlayerBase player)
 
 public override bool OnPlayerMeleeAttack(PlayerBase player, string victimName)
 {
-    Console.WriteLine($"{player.PlayerName} hit {victimName}");
+    Console.WriteLine($"{player.Name} hit {victimName}");
             
     return true; // allow damage
 }
 
 public override void OnPlayerDeath(PlayerBase player, DeathData info) 
 {
-    Console.WriteLine($"[C#] Player death (Steam: {player.PlayerName}) [type death - {info.DeadType}] [death reason - {info.Reason}] [distance - {info.Distance}] - KILLER [{info.KillerName}]!");
+    Console.WriteLine($"[C#] Player death (Steam: {player.Name}) [type death - {info.DeadType}] [death reason - {info.Reason}] [distance - {info.Distance}] - KILLER [{info.KillerName}]!");
 } 
 ```

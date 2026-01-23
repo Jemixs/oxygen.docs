@@ -13,16 +13,16 @@ Use `this.After` to execute code once after a specified delay. This is perfect f
 [Command("reward")]
 public void RewardCommand(PlayerBase player, string[] args)
 {
-     ReplyPlayer(player, "Wait 5 seconds for your reward...");
+    player.Reply("Wait 5 seconds for your reward...");
 
     // Execute logic after 5 seconds
     this.After(5f, () =>
     {
         // Give 100 Fame Points
         // We use the player object passed from the command context
-        ProcessCommand(player.SteamId, "SetFamePoints 100");
+        player.ProcessCommand("SetFamePoints 100");
         
-        ReplyPlayer(player, "You received 100 Fame Points!");
+        player.Reply("You received 100 Fame Points!");
         Console.WriteLine($"[Reward] Player {player.Name} got reward.");
     });
 }
@@ -65,12 +65,12 @@ private Guid _trapTimer;
 [Command("trap_start")]
 public void StartTrap(PlayerBase player, string[] args)
 {
-    ReplyPlayer(player, "Trap activated! 10 seconds to detonation!");
+    player.Reply("Trap activated! 10 seconds to detonation!");
 
     _trapTimer = this.After(10f, () => 
     {
         // If not cancelled, this runs:
-        ProcessCommand(player.SteamId, "KillPlayer");
+        player.ProcessCommand(""); // spawn trap zombie or some like kill player
         Console.WriteLine($"Player {player.PlayerName} fell into the trap.");
     });
 }
@@ -81,7 +81,7 @@ public void DisarmTrap(PlayerBase player, string[] args)
     // Cancel the pending timer
     this.CancelTimer(_trapTimer);
     
-    ReplyPlayer(player, "Trap disarmed! You are safe.");
+    player.Reply("Trap disarmed! You are safe.");
 }
 ```
 

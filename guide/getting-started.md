@@ -24,7 +24,7 @@ public class MyPlugin : OxygenPlugin
     [Command("hello")]
     private void HelloCommand(PlayerBase player, string[] args)
     {
-        ReplyPlayer(player, "Hello from C#!");
+       player.Reply("Hello from C#!");
     }
 }
 ```

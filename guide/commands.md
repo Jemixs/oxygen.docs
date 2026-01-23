@@ -13,10 +13,10 @@ private void OnGiftItem(PlayerBase player, string[] args)
 {
     if (args.Length < 1)
     {
-        ReplyPlayer(player, "Usage: /gift <item_name>");
+        player.Reply("Usage: /gift <item_name>");
         return;
     }
 
-    ReplyPlayer(player, $"Giving: {args[0]}");
+    player.Reply($"Giving: {args[0]}");
 }
 ```

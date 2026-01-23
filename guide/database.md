@@ -91,7 +91,7 @@ To modify data, use ProcessCommand:
 // playerObj.FamePoints = 1000; 
 
 // Correct:
-ProcessCommand(steamId, "SetFamePoints 10");   
+player.ProcessCommand("SetFamePoints 10");   
 ```
 
 ## API Reference

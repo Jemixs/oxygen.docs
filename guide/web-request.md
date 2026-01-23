@@ -94,9 +94,6 @@ public string GetStatus(string body, Dictionary<string, string> query)
     return "{ \"online\": 50, \"max_players\": 64 }";
 }
 ```
-
----
-
 ## Practical Examples
 
 Here are real-world examples of how to control the server remotely.
@@ -131,7 +128,7 @@ namespace MyServer.Plugins
 
                 // Command: #Announce <Message>
                 // We use 'null' as the first argument to execute as Server Console
-                ProcessCommand(null, $"Announce {data.Message}");
+                Server.ProcessCommand($"Announce {data.Message}");
 
                 Console.WriteLine($"[Web] Broadcast sent: {data.Message}");
                 return "{ \"status\": \"sent\" }";
@@ -175,13 +172,13 @@ namespace MyServer.Plugins
             // Change Time (e.g., "12:00")
             if (!string.IsNullOrEmpty(data.Time))
             {
-                ProcessCommand(null, $"SetTime {data.Time}");
+                Server.ProcessCommand($"SetTime {data.Time}");
             }
             
             // Change Weather (0 = Sunny, 1 = Rain)
             if (data.WeatherId >= 0)
             {
-                ProcessCommand(null, $"SetWeather {data.WeatherId}");
+                Server.ProcessCommand($"SetWeather {data.WeatherId}");
             }
 
             return "{ \"status\": \"updated\" }";
@@ -222,10 +219,10 @@ namespace MyServer.Plugins
             var request = JsonSerializer.Deserialize<BanRequest>(body);
 
             // Execute Ban: #Ban <SteamID> <Reason>
-            ProcessCommand(null, $"Ban {request.SteamId} {request.Reason}");
+            Server.ProcessCommand($"Ban {request.SteamId} {request.Reason}");
             
             // Kick immediately to apply effect
-            ProcessCommand(null, $"Kick {request.SteamId} {request.Reason}");
+            Server.ProcessCommand($"Kick {request.SteamId} {request.Reason}");
 
             Console.WriteLine($"[Web] Player {request.SteamId} banned remotely.");
             return "{ \"success\": true }";
