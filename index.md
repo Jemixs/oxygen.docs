@@ -10,8 +10,8 @@ hero:
       text: Get Started
       link: /guide/getting-started
     - theme: alt
-      text: API Reference
-      link: /api/methods
+      text: Player Hooks
+      link: /guide/player-hooks
 
 features:
   - title: C# .NET 8

@@ -1,13 +1,12 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  title: "Oxygen Framework",
+  title: "Oxygen",
   description: "C# Plugin System for SCUM Server",
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
-      { text: "Guide", link: "/guide/getting-started" },
-      { text: "API", link: "/api/methods" },
+      { text: "Guide", link: "/guide/getting-started" }
     ],
     sidebar: [
       {
